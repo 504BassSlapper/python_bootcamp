@@ -13,6 +13,7 @@ class Snake:
         self.segments = []
         self.init_snake()
         self.head = self.segments[0]
+        self.tail = self.segments[len(self.segments) -1]
 
     def init_snake(self):
         for i in range(INITIAL_SIZE):
@@ -21,6 +22,14 @@ class Snake:
             seg.penup()
             seg.goto(OFFSET * i, 0)
             self.segments.append(seg)
+
+    def create_segment(self):
+        seg = Turtle("square")
+        seg.color("red")
+        seg.penup()
+        seg.goto(self.tail.xcor(), self.tail.ycor())
+        self.segments.append(seg)
+        self.tail = self.segments[len(self.segments) -1]
 
     def move(self):
         for index in range(len(self.segments) - 1, 0, -1):
