@@ -15,5 +15,18 @@ print(data_list)
 print(avg)
 mean = data["temp"].mean()
 print(mean)
-print()
+print(data["temp"].max())
 
+print(data[data.day == "Monday"])
+
+print("Max temperature \n")
+print(data[data.temp == data.temp.max()])
+print("Min temperature \n")
+print(data[data.temp == data.temp.min()])
+
+monday = data[data.day == "Monday"]
+condition = monday.condition
+temperature = monday.temp
+fahrenheit_temp = temperature * 9 / 5 + 32
+print(fahrenheit_temp)
+print(condition)
