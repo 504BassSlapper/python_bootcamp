@@ -30,3 +30,10 @@ temperature = monday.temp
 fahrenheit_temp = temperature * 9 / 5 + 32
 print(fahrenheit_temp)
 print(condition)
+
+student_game_data_dict = {
+    "student": ["Alice", "Bob", "Mathew"],
+    "score": [76, 59, 90]
+}
+data = pandas.DataFrame(student_game_data_dict)
+data.to_csv("new_data.csv")
