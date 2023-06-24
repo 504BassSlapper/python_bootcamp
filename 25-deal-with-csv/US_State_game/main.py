@@ -38,7 +38,7 @@ while len(all_responses) < len(all_states):
             t.goto(state_x_coor, state_y_coor)
             t.write(state, align="center")
         break
-    answer.title()
+    answer = answer.title()
     if answer in all_states:
         state_data = data[data.state == answer]
         print(state_data)
