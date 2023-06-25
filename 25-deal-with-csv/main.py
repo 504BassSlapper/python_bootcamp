@@ -37,3 +37,11 @@ student_game_data_dict = {
 }
 data = pandas.DataFrame(student_game_data_dict)
 data.to_csv("new_data.csv")
+
+
+## loog over df
+
+df = pandas.DataFrame(student_game_data_dict)
+for index, row in df.iterrows():
+    print(index)
+    print(row)
