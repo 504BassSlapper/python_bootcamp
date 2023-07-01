@@ -2,3 +2,6 @@
 **/__pycache__/**
 **/.DS**
 **/.vscode
+**/output.json
+**.swp
+**.project_config
