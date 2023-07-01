@@ -1,6 +1,7 @@
 import requests
+import os
 
-SHEETY_ENDPOINT = "https://api.sheety.co/c593e0b12df26813bf44c40845673f7c/travelPrices/prices"
+SHEETY_ENDPOINT = os.getenv("SHEETY_ENDPOINT")
 
 class DataManager: 
     def __init__(self):
@@ -11,5 +12,17 @@ class DataManager:
         data = response.json()
         self.destination_data = data["prices"]
         return self.destination_data
-
-        
+    
+    def update_destination_codes(self):
+        for city in self.destination_data: 
+            new_data = {
+                "price": {
+                    "iataCode" : city["iataCode"]
+                }
+                
+            }
+            response = requests.put(
+                url=f"{SHEETY_ENDPOINT}/{city['id']}",
+                json=new_data
+            )
+            print(response.json())   
