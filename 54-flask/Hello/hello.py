@@ -4,7 +4,14 @@ from markupsafe import escape
 app = Flask(__name__)
 print(app)
 
+def add_styling(function):
+    def wrapper():
+        return f"<b><u><em>{function()}</em></u></b>"
+    return wrapper
+    
+
 @app.route('/')
+@add_styling
 def hello():
     return "hello"
 
